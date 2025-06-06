@@ -1,0 +1,44 @@
+.signup-container {
+    margin: 50px; /* Add spacing at the top */
+    padding: 20px; /* Add padding inside the container */
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px; /* Match the width of the input fields */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+.signup-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Dark gray text color */
+    text-align: center; /* Center-align the heading */
+}
+
+.signup-container .form-label {
+    font-weight: bold;
+    color: #555; /* Medium gray text color */
+}
+
+.signup-container .form-control {
+    width: 100%; /* Ensure input fields take up the full width of the container */
+    border-radius: 5px; /* Rounded corners for input fields */
+    padding: 10px; /* Add padding inside the input fields */
+    font-size: 1rem; /* Set a readable font size */
+}
+
+.signup-container .btn {
+    width: 100%; /* Ensure the button matches the width of the input fields */
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.toggle-button {
+    font-size: 0.9rem;
+    color: #007bff; /* Bootstrap primary color */
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,26 @@
+/* Styling for the landing page container */
+.landing-page {
+    display: flex; /* Use flexbox to align items side by side */
+    justify-content: center; /* Center the components horizontally */
+    align-items: center; /* Center the components vertically */
+    gap: 20px; /* Add space between the components */
+    padding: 20px; /* Add padding around the container */
+    background-color: #f8f9fa; /* Light gray background */
+    /* min-height: 100vh; Ensure the container takes up the full viewport height */
+    box-sizing: border-box; /* Include padding in height calculations */
+}
+
+/* Styling for FrontBody and BackBody components */
+.front-body, .back-body {
+    flex: 1; /* Allow the components to take equal space */
+    max-width: 50%; /* Limit the maximum width of each component */
+    height: 90vh; /* Make the components fill most of the viewport height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    border-radius: 8px; /* Add rounded corners */
+    background-color: white; /* White background for each component */
+    padding: 20px; /* Add padding inside the components */
+    display: flex; /* Ensure content inside is flexible */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    box-sizing: border-box; /* Include padding in width and height calculations */
+}

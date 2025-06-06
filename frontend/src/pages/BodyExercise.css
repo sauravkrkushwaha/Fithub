@@ -1,0 +1,118 @@
+/* General styling for the page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    /* Light gray background */
+}
+
+/* Styling for the body part name */
+.BodyPart {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    /* Dark gray text */
+}
+
+/* Container styling */
+.exercise-container {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    height: auto;
+    
+}
+
+/* Exercise name styling */
+.exerciseName {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+    color: white; /* White text color */
+    background-color: #007bff; /* Bootstrap primary blue */
+    padding: 10px 15px; /* Add padding for better spacing */
+    border-radius: 8px; /* Rounded corners */
+    display: block; /* Ensure it spans the full width */
+    width: 100%; /* Take the full width of the container */
+}
+.exercise-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the content */
+    margin-bottom: 20px;
+    background-color: #f3f4f6;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Video container styling */
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    /* Space between the videos */
+    /* margin-bottom: 20px; */
+}
+
+.exercise-video {
+    width: 48%;
+    /* Make videos take up equal space */
+    border-radius: 8px;
+    /* Rounded corners for videos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+/* Steps section styling */
+.steps {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.step-row {
+    display: flex;
+    align-items: center;
+    /* Align notation and text vertically */
+    margin-top: 15px;
+    padding: 10px;
+    /* Add padding inside the step row */
+    border: 1px solid #ddd;
+    /* Add a light gray border */
+    border-radius: 8px;
+    /* Rounded corners for the step row */
+    background-color: #f9f9f9;
+    /* Slightly lighter background for steps */
+}
+
+.notation {
+    width: 30px;
+    height: 30px;
+    background-color: #007bff;
+    /* Bootstrap primary blue */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50%;
+    /* Make it circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    /* Space between notation and text */
+}
+
+.step-text {
+    font-size: 1rem;
+    color: #555;
+    /* Medium gray text */
+    line-height: 1.5;
+    /* Improve readability */
+    margin-bottom: 0rem;
+}

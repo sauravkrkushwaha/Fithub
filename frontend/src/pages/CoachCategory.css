@@ -1,0 +1,137 @@
+/* Page container styling */
+.coach-category-container {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    padding: 25px 20px; /* Default padding for larger screens */
+    border-radius: 8px;
+}
+
+/* Title styling */
+.coach-category-container h1 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #343a40;
+}
+
+/* Card wrapper for alignment */
+.card-wrapper {
+    display: flex;
+    justify-content: center; /* Center the cards */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    gap: 10rem; /* Increased gap between cards */
+    margin-top: 20px;
+}
+
+/* Card styling */
+.custom-card {
+    width: 20rem; /* Increased width */
+    height: 32rem; /* Increased height */
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    position: relative; /* For gradient positioning */
+}
+
+/* Gradient for the top portion of the first card */
+.custom-card:nth-child(1)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem; /* Gradient only covers the top portion */
+    background: linear-gradient(to bottom, rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0)); /* Blue gradient */
+    z-index: 0; /* Place it behind the content */
+    border-top-left-radius: 8px; /* Match card border radius */
+    border-top-right-radius: 8px; /* Match card border radius */
+}
+
+/* Gradient for the top portion of the second card */
+.custom-card:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem; /* Gradient only covers the top portion */
+    background: linear-gradient(to bottom, rgba(40, 167, 69, 0.8), rgba(40, 167, 69, 0)); /* Green gradient */
+    z-index: 0; /* Place it behind the content */
+    border-top-left-radius: 8px; /* Match card border radius */
+    border-top-right-radius: 8px; /* Match card border radius */
+}
+
+/* Ensure card content is above the gradient */
+.custom-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Card hover effect */
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card image styling */
+.custom-card-img {
+    height: 18rem; /* Increased height for a larger image */
+    object-fit: cover; /* Ensures the image scales properly */
+    border: none; /* Removed the blue line (border) */
+    position: relative;
+    z-index: 2; /* Ensure it appears above the gradient */
+}
+
+/* Card title styling */
+.custom-card-title {
+    font-size: 1.5rem; /* Increased font size */
+    font-weight: bold;
+    color: #000000; /* Changed color to black */
+    text-align: center;
+    margin-bottom: 10px; /* Added spacing below the title */
+}
+
+/* Card text styling */
+.custom-card-text {
+    font-size: 1rem; /* Slightly larger font size */
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Button styling */
+.custom-button {
+    width: 100%; /* Make the button span the full width of the card */
+    text-align: center; /* Center-align the text inside the button */
+    font-weight: bold; /* Make the text bold for better visibility */
+    padding: 10px; /* Add padding for better spacing */
+    border-radius: 5px; /* Slightly rounded corners */
+    margin-top: 10px; /* Add spacing above the button */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .coach-category-container {
+        padding: 30px 15px; /* Adjust padding for medium screens */
+    }
+
+    .card-wrapper {
+        gap: 5rem; /* Reduce gap for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .coach-category-container {
+        padding: 20px 10px; /* Adjust padding for small screens */
+    }
+
+    .custom-card {
+        width: 90%; /* Cards take full width on smaller screens */
+        height: auto; /* Adjust height automatically */
+    }
+
+    .card-wrapper {
+        gap: 2rem; /* Reduce gap further on smaller screens */
+    }
+}

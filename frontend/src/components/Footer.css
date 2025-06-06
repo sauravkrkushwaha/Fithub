@@ -1,0 +1,46 @@
+/* Ensure the footer is placed at the end of the main content */
+html, body {
+    height: 100%; /* Ensure the body takes up the full height of the viewport */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; /* Ensure the root container takes up the full height */
+}
+
+.main-content {
+    flex: 1; /* Allow the main content to grow and take up available space */
+}
+
+/* Footer styling */
+.footer {
+    position: sticky; /* Position relative to the main content */
+    bottom: 0;
+    width: 100%; /* Make it span the full width of the screen */
+    background-color: transparent; /* Dark background for the footer */
+    color: white; /* White text for better contrast */
+    text-align: center; /* Center-align the text */
+    padding: 15px 0; /* Add padding for better spacing */
+    font-size: 0.9rem; /* Set a standard font size */
+}
+
+.footer .navbar-brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff; /* Ensure the brand text is white */
+}
+
+.footer .nav-link {
+    color: #ffffff; /* Ensure the links are white */
+    margin: 0 10px; /* Add spacing between links */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer .nav-link:hover {
+    color: #007bff; /* Change color on hover for better interactivity */
+    text-decoration: underline; /* Add underline on hover */
+}

@@ -1,0 +1,7 @@
+/* Navbar logo styling */
+.navbar-logo {
+    height: 40px; /* Set the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain;
+     /* Ensure the logo fits within the container */
+}

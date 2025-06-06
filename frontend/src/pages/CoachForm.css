@@ -1,0 +1,32 @@
+.coach-form-container {
+    margin-top: 50px;
+    padding: 20px;
+    max-width: 600px;
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coach-form-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Dark gray text color */
+    text-align: center;
+}
+
+.coach-form-container .form-label {
+    font-weight: bold;
+    color: #555; /* Medium gray text color */
+}
+
+.coach-form-container .form-control {
+    border-radius: 5px;
+}
+
+.coach-form-container .btn {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+}

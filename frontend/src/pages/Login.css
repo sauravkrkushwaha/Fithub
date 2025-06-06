@@ -1,0 +1,33 @@
+.login-container {
+    margin-top: 50px; /* Add spacing at the top */
+    padding: 20px; /* Add padding inside the container */
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px; /* Match the width of the input fields */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+}
+
+.login-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Dark gray text color */
+    text-align: center; /* Center-align the heading */
+}
+
+.login-container .form-label {
+    font-weight: bold;
+    color: #555; /* Medium gray text color */
+}
+
+.login-container .form-control {
+    border-radius: 5px; /* Rounded corners for input fields */
+}
+
+.login-container .btn {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+}

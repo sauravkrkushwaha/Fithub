@@ -1,0 +1,51 @@
+/* Default styles for body parts */
+.bodymap path {
+    fill: #f3f4f6; /* Transparent by default */
+    stroke: currentColor; /* Use current text color for stroke */
+    stroke-width: 1;
+    transition: fill 0.3s ease, stroke 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect to fill the area */
+.bodymap:hover path {
+    fill: pink; /* Change fill color to pink on hover */
+    stroke: black; /* Change stroke color to pink on hover */
+}
+
+/* Container for the SVG */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6; /* Tailwind's bg-gray-100 equivalent */
+    border: 2px solid #e5e7eb; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Add some padding inside the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Responsive SVG styling */
+.svg-box {
+    width: 100%;
+    max-width: 400px; /* Set a maximum width for the SVG */
+    height: auto;
+    border: 2px solid #d1d5db; /* Light gray border for the SVG */
+    border-radius: 8px; /* Rounded corners for the SVG */
+    padding: 8px; /* Add padding inside the SVG border */
+    background-color: #ffffff; /* White background for the SVG */
+}
+
+
+
+@media (min-width: 640px) {
+    svg {
+        max-width: 70%;
+    }
+}
+
+@media (min-width: 1024px) {
+    svg {
+        max-width: 50%;
+    }
+}

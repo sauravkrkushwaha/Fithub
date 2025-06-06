@@ -1,0 +1,426 @@
+/* Main container styling */
+.main-container {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray background */
+    min-height: 100vh; /* Full height to center the content */
+    gap: 20px; /* Space between sections */
+   
+}
+
+/* Profile header styling */
+.profile-header {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #ddd; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    width: 90%; /* Increase width to 90% of the screen */
+    max-width: 1200px; /* Set a maximum width for larger screens */
+    gap: 20px; /* Space between elements */
+}
+
+/* Profile image styling */
+.profile-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%; /* Circular image */
+}
+
+/* Coach info styling */
+.coach-info {
+    flex: 1; /* Allow the name and specialty to take up available space */
+}
+
+.name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.specialty {
+    font-size: 1rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* Message button styling */
+.message-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    gap: 5px; /* Space between icon and text */
+    height: 40px;
+    padding: 0 20px; /* Add horizontal padding to fit the content */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+/* About Me card styling */
+.about-me-card {
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #ddd; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    width: 90%; /* Increase width to 90% of the screen */
+    max-width: 1200px; /* Set a maximum width for larger screens */
+    text-align: left; /* Align text to the left */
+}
+
+.about {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1rem;
+    color: #6c757d;
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Achievement section styling */
+.achievement {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Space between cards */
+    width: 90%; /* Increase width to 90% of the screen */
+    max-width: 1200px; /* Set a maximum width for larger screens */
+}
+
+/* Speciality and Certificates card styling */
+.speciality-card, .certificates-card {
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #ddd; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    flex: 1; /* Allow cards to take equal space */
+    min-width: 300px; /* Minimum width for smaller screens */
+    text-align: left; /* Align text to the left */
+}
+
+/* Specialty card styling */
+.speciality-card {
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #ddd; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    width: 100%; /* Full width of the container */
+    max-width: 1200px; /* Set a maximum width for larger screens */
+    text-align: left; /* Align text to the left */
+}
+
+/* Specialty item container styling */
+.speciality-item {
+    display: flex; /* Flexbox for horizontal alignment */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 10px; /* Space between items */
+    margin-top: 10px; /* Space above the items */
+}
+
+/* Title styling */
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Text styling */
+.speciality-text, .certificate-text {
+    font-size: 1rem;
+    color: #6c757d;
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Specialty text styling */
+.speciality-text {
+    background-color: #f0f0f0; /* Light gray background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 10px 20px; /* Padding inside the box */
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333; /* Dark gray text color */
+    margin: 0; /* Remove default margin */
+    white-space: nowrap; /* Prevent text wrapping */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the text box */
+}
+
+/* Plan section styling */
+.package {
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #ddd; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    width: 90%; /* Full width of the container */
+    max-width: 1200px; /* Set a maximum width for larger screens */
+    text-align: left; /* Align text to the left */
+    margin-top: 20px; /* Add spacing above the section */
+}
+
+/* Plan options styling */
+.plan {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px; /* Space between grid items */
+}
+
+.plan-option {
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: space-between; /* Separate name and price */
+    align-items: center; /* Center items vertically */
+    background-color: #f8f9fa; /* Light gray background for each plan */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 15px; /* Padding inside each plan */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for each plan */
+    text-align: left; /* Align text to the left */
+}
+
+.plan-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333; /* Dark gray text color */
+}
+
+.price-container {
+    display: flex;
+    flex-direction: column; /* Stack prices vertically */
+    align-items: flex-end; /* Align prices to the right */
+}
+
+.plan-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000; /* Black color for the discounted price */
+}
+
+.original-price {
+    font-size: 0.9rem;
+    color: #6c757d; /* Gray color for the original price */
+    text-decoration: line-through; /* Line-through effect for the original price */
+    margin-top: 2px; /* Add slight spacing between the prices */
+}
+
+/* Reviews section styling */
+.reviews {
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #ddd; /* Light gray border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card effect */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the card */
+    width: 90%; /* Full width of the container */
+    max-width: 1200px; /* Set a maximum width for larger screens */
+    margin-top: 20px; /* Add spacing above the section */
+}
+
+/* Reviews box styling */
+.reviews-box {
+    background-color: #ffffff; /* White background for the box */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    margin-top: 20px; /* Add spacing above the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the box */
+}
+
+/* Review card styling */
+.review-card {
+    display: flex; /* Use flexbox for horizontal alignment */
+    gap: 20px; /* Add space between the author and content */
+    align-items: flex-start; /* Align items at the top */
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Add padding inside the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Review author styling */
+.review-author {
+    display: flex;
+    flex-direction: column; /* Stack author details vertically */
+    align-items: center; /* Center align the image and name */
+    text-align: center; /* Center align text */
+    width: 80px; /* Reduce the width of the author section */
+}
+
+/* Circular image styling */
+.review-image {
+    width: 60px; /* Reduce the width of the image */
+    height: 60px; /* Reduce the height of the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fits within the circle */
+    border: 1px solid #ddd; /* Optional: Add a border around the image */
+    margin-bottom: 5px; /* Reduce spacing below the image */
+}
+
+/* Reviewer name styling */
+.reviewer-name {
+    font-size: 0.9rem; /* Reduce the font size */
+    font-weight: bold;
+    color: #333; /* Dark gray text color */
+    margin: 0; /* Remove extra margin */
+}
+
+/* Review date styling */
+.review-date {
+    font-size: 0.8rem; /* Reduce the font size */
+    color: #6c757d; /* Muted gray color for the date */
+    margin: 0; /* Remove extra margin */
+}
+
+/* Review content styling */
+.review-content {
+    flex: 1; /* Take up the remaining space */
+}
+
+.review-text {
+    font-size: 1rem; /* Set a readable font size */
+    color: #333; /* Dark gray text color */
+}
+
+/* Reviews container styling */
+.reviews-container {
+    display: flex; /* Use flexbox for horizontal alignment */
+    gap: 20px; /* Add space between the author and content */
+    margin-top: 20px; /* Add spacing above the reviews */
+    align-items: flex-start; /* Align items at the top */
+}
+
+/* Review author styling */
+.review-author {
+    display: flex;
+    flex-direction: column; /* Stack author details vertically */
+    align-items: center; /* Center align the image and name */
+    text-align: center; /* Center align text */
+    width: 150px; /* Set a fixed width for the author section */
+}
+
+/* Circular image styling */
+.review-image {
+    width: 100px; /* Set the width of the image */
+    height: 100px; /* Set the height of the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fits within the circle */
+    border: 2px solid #ddd; /* Optional: Add a border around the image */
+    margin-bottom: 10px; /* Add spacing below the image */
+}
+
+/* Review content styling */
+.review-content {
+    flex: 1; /* Take up the remaining space */
+    padding: 15px; /* Add padding inside the content box */
+}
+
+.review-text {
+    margin-top: 10px; /* Add spacing above the review text */
+    font-size: 1rem; /* Set a readable font size */
+    color: #333; /* Dark gray text color */
+}
+
+/* Rating container styling */
+.rating-container {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Reduce space between sections */
+}
+
+.rating-input {
+    flex: 1; /* Take up available space */
+    text-align: left; /* Align stars to the left */
+    padding-right: 10px; /* Add padding to the right for spacing */
+    border-right: 1px solid #ddd; /* Add a vertical line */
+}
+
+/* Right: Average rating styling */
+.avg-rating {
+    flex: 1; /* Take up available space */
+    text-align: center; /* Center align the content */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center align vertically */
+    align-items: center; /* Center align horizontally */
+}
+
+.avgRating-value-container {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Align items vertically in the center */
+    justify-content: center; /* Center align horizontally */
+    gap: 5px; /* Add space between the value, text, and stars */
+}
+
+.avgRating-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333; /* Dark gray text color */
+    margin: 0;
+}
+
+.avgRating-text {
+    font-size: 1rem;
+    color: #6c757d; /* Gray text color */
+    margin: 0;
+}
+
+.avgRating-value-container {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Align items vertically */
+    justify-content: flex-end; /* Align items to the right */
+    text-align: center;
+    gap: 5px; /* Space between value, text, and stars */
+}
+
+.avgRating-value {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333; /* Dark gray text color */
+    margin: 0;
+}
+
+.half-rating-read {
+    margin-left: 5px; /* Add spacing between stars and text */
+}
+
+/* Load More button container styling */
+.load-more-container {
+    text-align: center; /* Center the button */
+    margin-top: 20px; /* Add spacing above the button */
+}
+
+.load-more-container button {
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 1rem; /* Set a readable font size */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Add Review Section */
+.add-review {
+    margin-top: 20px; /* Add spacing above the section */
+    display: flex;
+    flex-direction: column; /* Stack textarea and button vertically */
+    gap: 10px; /* Add spacing between textarea and button */
+}
+
+.review-textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding inside the textarea */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Set a readable font size */
+    resize: none; /* Disable resizing */
+}
+
+.post-review-button {
+    align-self: flex-end; /* Align the button to the right */
+    padding: 10px 20px; /* Add padding to the button */
+    font-size: 1rem; /* Set a readable font size */
+    border-radius: 5px; /* Rounded corners */
+}
