@@ -1,20 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const MuscleGroup = require('../models/exercise'); // Adjust path if needed
+const fs = require('fs');
+const path = require('path');
 
-// GET /api/body-exercise/:muscle
-router.get('/:muscle', async (req, res) => {
-    try {
-        const muscle = req.params.muscle.toLowerCase();
-        const group = await MuscleGroup.findOne({ muscle });
-        if (!group) {
-            return res.status(404).json({ exercises: [] });
-        }
-        console.log(`Found exercises for muscle: ${muscle}`);
-        res.json({ exercises: group.exercises });
-    } catch (err) {
-        res.status(500).json({ message: 'Server error', error: err.message });
-    }
+const exercisesFilePath = path.join(__dirname, '..', 'exerciseJson', 'all_exercises.json');
+
+router.get('/:muscle', (req, res) => {
+  try {
+    const muscle = req.params.muscle.toLowerCase();
+
+    const data = fs.readFileSync(exercisesFilePath, 'utf8');
+    const allExercises = JSON.parse(data);
+
+    const exercises = allExercises[muscle] || [];
+
+    // Respond with exercises inside an object
+    res.json({ exercises });
+  } catch (err) {
+    console.error('Error reading exercises:', err);
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
 });
 
+// IMPORTANT: export the router!
 module.exports = router;

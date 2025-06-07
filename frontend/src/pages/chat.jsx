@@ -27,6 +27,11 @@ function Chat() {
         fetchMessages();
     }, [myUserId, otherUserId]);
 
+    useEffect(() => {
+    console.log("Logged-in User ID (myUserId):", myUserId);
+    console.log("Chatting with User ID (otherUserId):", otherUserId);
+}, [myUserId, otherUserId]);
+
     // Scroll to bottom on new message
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });

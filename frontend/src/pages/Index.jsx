@@ -12,6 +12,7 @@ import Chat from "./Chat";
 import CoachForm from "./CoachForm";
 import SignupChoice from "./SignupChoice";
 import BodyExercise from "./BodyExercise";
+import UserProfile from "./UserProfile";
 
 function Index() {
   return (
@@ -20,6 +21,7 @@ function Index() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/coach-category" element={<CoachCategory />} />
+        <Route path="/profile" element={<UserProfile />} />
         <Route path="/coach-list" element={<CoachList />} />
         <Route path="/coach-profile/:id" element={<CoachProfile />} />
         <Route path="/signup" element={<Signup />} />
