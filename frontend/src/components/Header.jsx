@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import './Header.css';
 
 function Header() {
@@ -11,18 +11,15 @@ function Header() {
     const location = useLocation();
     const userInfo = localStorage.getItem('token');
     const userType = localStorage.getItem('userType');
-    const userId = localStorage.getItem('userId'); // changed from coachId to userId
+    const userId = localStorage.getItem('userId');
 
     const isOnOwnCoachProfile =
         userInfo &&
         userType === "coach" &&
         userId &&
-        location.pathname === `/coach-profile/${userId}`; // changed from coachId to userId
+        location.pathname === `/coach-profile/${userId}`;
 
     const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('userType');
-        localStorage.removeItem('userId'); // changed from coachId to userId
         localStorage.clear();
         navigate('/login');
     };
@@ -36,14 +33,15 @@ function Header() {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto"></Nav>
                 <Nav className="d-flex align-items-center">
+
                     {userInfo && userType === "client" && (
                         <Nav.Link as={Link} to="/coach-category">Get a coach</Nav.Link>
                     )}
-                    {/* Show Edit Profile button only if coach is viewing their own profile */}
+
                     {isOnOwnCoachProfile ? (
                         <Button
                             as={Link}
-                            to={`/coach-edit/${userId}`} // changed from coachId to userId
+                            to={`/coach-edit/${userId}`}
                             variant="outline-primary"
                             className="mx-2"
                             style={{ fontWeight: "bold" }}
@@ -51,13 +49,19 @@ function Header() {
                             Edit Profile
                         </Button>
                     ) : (
-                        // Otherwise show My Profile button for coach
                         userInfo && userType === "coach" && userId && (
-                            <Nav.Link as={Link} to={`/coach-profile/${userId}`}> {/* changed from coachId to userId */}
+                            <Nav.Link as={Link} to={`/coach-profile/${userId}`}>
                                 My Profile
                             </Nav.Link>
                         )
                     )}
+
+                    {userInfo && (
+                        <Nav.Link as={Link} to="/chat-list">
+                            <Button variant="secondary" className="mx-2">Chat List</Button>
+                        </Nav.Link>
+                    )}
+
                     {userInfo ? (
                         <Button variant="danger" onClick={handleLogout}>Logout</Button>
                     ) : (
