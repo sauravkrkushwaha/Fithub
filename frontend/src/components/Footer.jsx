@@ -1,26 +1,23 @@
-import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
-import './Footer.css'; // Import custom CSS for footer styling
+import Nav from 'react-bootstrap/Nav';
+import './Footer.css';
 
 function Footer() {
     return (
-        <Navbar bg="dark" variant="dark" className="mt-auto py-3">
-            
-                <Navbar.Brand href="#home">Fithub</Navbar.Brand>
-                <Nav className="me-auto">
-                    <Nav.Link href="#about">About Us</Nav.Link>
-                    <Nav.Link href="#contact">Contact</Nav.Link>
-                    <Nav.Link href="#privacy">Privacy Policy</Nav.Link>
-                </Nav>
-                <Nav>
-                    <Nav.Link href="#facebook">Facebook</Nav.Link>
-                    <Nav.Link href="#twitter">Twitter</Nav.Link>
-                    <Nav.Link href="#instagram">Instagram</Nav.Link>
-                </Nav>
-            
+        <Navbar bg="dark" variant="dark" className="mt-auto py-3 px-4 d-flex justify-content-between">
+            <Navbar.Brand as={Link} to="/">Fithub</Navbar.Brand>
+            <Nav className="me-auto">
+                <Nav.Link as={Link} to="/about">About Us</Nav.Link>
+                <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+                <Nav.Link as={Link} to="/privacypolicy">Privacy Policy</Nav.Link>
+            </Nav>
+            <Nav>
+                <Nav.Link href="https://facebook.com" target="_blank">Facebook</Nav.Link>
+                <Nav.Link href="https://twitter.com" target="_blank">Twitter</Nav.Link>
+                <Nav.Link href="https://instagram.com" target="_blank">Instagram</Nav.Link>
+            </Nav>
         </Navbar>
     );
 }

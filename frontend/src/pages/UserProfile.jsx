@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import './UserProfile.css'; // Import your CSS file
 
 function UserProfile() {
   const [profile, setProfile] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const token = localStorage.getItem("token"); // Get token from localStorage
+    const token = localStorage.getItem("token");
 
     if (!token) {
       setError("No token found. Please log in.");
@@ -16,34 +17,31 @@ function UserProfile() {
     axios
       .get("http://localhost:5000/api/user/profile", {
         headers: {
-          Authorization: `Bearer ${token}`, // Add Bearer prefix
+          Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
-        console.log("Profile data:", res.data);
-        setProfile(res.data.user); // ✅ Only set the user object
+        setProfile(res.data.user);
       })
       .catch((err) => {
-        console.error("Error fetching profile:", err);
         setError(err.response?.data?.message || "Failed to fetch profile");
       });
   }, []);
 
   if (error) {
-    return <div style={{ color: "red" }}>Error: {error}</div>;
+    return <div className="error-text">Error: {error}</div>;
   }
 
   if (!profile) {
-    return <div>Loading profile...</div>;
+    return <div className="loading-text">Loading profile...</div>;
   }
 
   return (
-    <div style={{ maxWidth: "500px", margin: "2rem auto", padding: "1rem", border: "1px solid #ccc", borderRadius: "8px" }}>
+    <div className="user-profile-card">
       <h2>User Profile</h2>
       <p><strong>Username:</strong> {profile.username}</p>
       <p><strong>Email:</strong> {profile.email}</p>
       <p><strong>Phone:</strong> {profile.phone}</p>
-      {/* Add more fields if available */}
     </div>
   );
 }

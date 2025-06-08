@@ -1,77 +1,109 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 
-function NearbyGyms() {
+const API_KEY = "AIzaSyCwBDUauxwyuNxOfDiqmLjewPuRIaf2bc4";
+
+export default function NearbyGyms() {
   const [gyms, setGyms] = useState([]);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
+  const mapRef = useRef(null);
 
   useEffect(() => {
-    // Get current location
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(fetchNearbyGyms, () => {
-        setError('Failed to get location.');
+    const loadGoogleMaps = () => {
+      return new Promise((resolve, reject) => {
+        if (window.google && window.google.maps && window.google.maps.places) {
+          resolve();
+          return;
+        }
+
+        const existingScript = document.querySelector(
+          `script[src^="https://maps.googleapis.com/maps/api/js"]`
+        );
+
+        if (existingScript) {
+          existingScript.addEventListener("load", resolve);
+          existingScript.addEventListener("error", reject);
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places`;
+        script.async = true;
+        script.defer = true;
+        script.onload = resolve;
+        script.onerror = () => reject("Failed to load Google Maps script");
+
+        document.head.appendChild(script);
       });
-    } else {
-      setError('Geolocation is not supported.');
-    }
+    };
+
+    loadGoogleMaps()
+      .then(() => {
+        getGyms();
+      })
+      .catch((err) => setError(err.toString()));
   }, []);
 
-  const fetchNearbyGyms = async (position) => {
-    const { latitude, longitude } = position.coords;
-    const radius = 15000; // meters (15km radius = 30km diameter)
-
-    const proxy = 'https://cors-anywhere.herokuapp.com/'; // Use a proxy in development if CORS error
-    const apiKey = 'YOUR_GOOGLE_API_KEY'; // Replace with your API Key
-
-    const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=gym&key=${apiKey}`;
-
-    try {
-      const response = await fetch(proxy + url);
-      const data = await response.json();
-      if (data.results) setGyms(data.results);
-      else setError('No gyms found.');
-    } catch (err) {
-      setError('Failed to fetch gyms.');
+  const getGyms = () => {
+    if (!navigator.geolocation) {
+      setError("Geolocation not supported by your browser");
+      return;
     }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+
+        // Create a dummy map to use the PlacesService
+        mapRef.current = new window.google.maps.Map(document.createElement("div"));
+
+        const service = new window.google.maps.places.PlacesService(mapRef.current);
+        const location = new window.google.maps.LatLng(lat, lng);
+
+        const request = {
+          location,
+          radius: 15000, // 15 km
+          type: "gym",
+        };
+
+        service.nearbySearch(request, (results, status) => {
+          if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+            setGyms(results);
+          } else {
+            setError("Places search failed: " + status);
+          }
+        });
+      },
+      () => {
+        setError("Unable to retrieve your location");
+      }
+    );
   };
 
   return (
-    <div style={styles.container}>
-      <h3>Nearby Gyms (30×30 km)</h3>
-      {error && <p style={styles.error}>{error}</p>}
-      <div style={styles.box}>
-        {gyms.length === 0 && !error && <p>Loading gyms...</p>}
-        {gyms.map((gym, index) => (
-          <div key={index} style={styles.gymCard}>
+    <div style={{ maxWidth: 400, margin: "20px auto", fontFamily: "Arial, sans-serif" }}>
+      <h2>Nearby Gyms (15 km radius)</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      <div
+        style={{
+          border: "2px solid #333",
+          height: 400,
+          overflowY: "auto",
+          padding: 10,
+          backgroundColor: "#f9f9f9",
+          borderRadius: 8,
+        }}
+      >
+        {!error && gyms.length === 0 && <p>Loading gyms near you...</p>}
+        {gyms.map((gym) => (
+          <div key={gym.place_id} style={{ marginBottom: 12 }}>
             <strong>{gym.name}</strong>
-            <p>{gym.vicinity}</p>
+            <br />
+            <small>{gym.vicinity || gym.formatted_address}</small>
           </div>
         ))}
       </div>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    padding: 20,
-    fontFamily: 'Arial',
-  },
-  box: {
-    width: 300,
-    height: 300,
-    border: '2px solid #333',
-    overflowY: 'scroll',
-    padding: 10,
-    backgroundColor: '#f9f9f9',
-  },
-  gymCard: {
-    marginBottom: 10,
-    padding: 5,
-    borderBottom: '1px solid #ccc',
-  },
-  error: {
-    color: 'red',
-  },
-};
-
-export default NearbyGyms;
