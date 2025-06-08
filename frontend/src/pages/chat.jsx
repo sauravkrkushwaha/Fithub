@@ -99,11 +99,12 @@ function Chat() {
                     autoComplete="off"
                 />
                 <Button type="submit" variant="dark" className="chat-send-button ms-2">
-                    Send
+                    Send msg
                 </Button>
             </Form>
         </Container>
     );
 }
+
 
 export default Chat;
