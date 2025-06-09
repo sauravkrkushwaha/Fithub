@@ -1,40 +1,74 @@
 .chat-list-container {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 600px;
-    background-color: #f8f9fa; /* Light gray background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.chat-avatar {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
 }
 
 .chat-item {
-    padding: 15px;
-    border-bottom: 1px solid #ddd; /* Divider between chats */
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+  padding: 40px 40px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .chat-item:hover {
-    background-color: #f1f1f1; /* Highlight on hover */
+  background-color: #f8f8f8;
+}
+
+.chat-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.chat-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+  flex: 1;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .chat-name {
-    font-size: 1rem;
-    font-weight: bold;
-    margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #111;
 }
 
 .chat-time {
-    font-size: 0.8rem;
+  font-size: 0.75rem;
+  color: #999;
+  white-space: nowrap;
 }
 
 .chat-message {
-    font-size: 0.9rem;
-    color: #555; /* Medium gray for message text */
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  font-size: 0.75rem;
+  background-color: #25d366;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 8px;
 }

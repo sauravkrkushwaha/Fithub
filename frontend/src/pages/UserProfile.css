@@ -1,50 +1,84 @@
-.user-profile-card {
-  max-width: 400px;
-  margin: 3rem auto;
-  padding: 2rem;
-  border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+/* Full page wrapper */
+.profile-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fa;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.user-profile-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-}
-
-.user-profile-card h2 {
-  text-align: center;
-  font-size: 1.8rem;
+  padding: 2rem;
   color: #222;
+}
+
+/* Main heading */
+.welcome-heading {
+  font-size: 3rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
-  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
 }
 
-.user-profile-card p {
-  margin: 0.8rem 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
+/* User details container */
+.user-details {
+  background: #fff;
+  padding: 1.8rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(44, 62, 80, 0.15);
+  width: 320px;
+  text-align: left;
+  margin-bottom: 2rem;
 }
 
-.user-profile-card strong {
-  color: #444;
+.user-details p {
+  font-size: 1.2rem;
+  margin: 0.7rem 0;
+  color: #34495e;
+}
+
+.user-details span {
   font-weight: 600;
+  color: #1abc9c;
+}
+
+/* Coach box container */
+.coach-box {
+  width: 320px;
+  background: #1abc9c;
+  border-radius: 12px;
+  padding: 1.3rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(26, 188, 156, 0.3);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.coach-box:hover {
+  background: #16a085;
+}
+
+.coach-link {
+  color: white !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.coach-link:hover {
+  text-decoration: underline;
+}
+
+/* Loading and error messages styling */
+.loading-text,
+.error-text {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-top: 3rem;
+  color: #7f8c8d;
 }
 
 .error-text {
   color: #e74c3c;
-  text-align: center;
-  font-size: 1.1rem;
-  margin-top: 2rem;
-}
-
-.loading-text {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #888;
-  margin-top: 2rem;
 }

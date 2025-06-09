@@ -8,6 +8,8 @@
     background-color: #f8f9fa; /* Light gray background */
     /* min-height: 100vh; Ensure the container takes up the full viewport height */
     box-sizing: border-box; /* Include padding in height calculations */
+    background: transparent;
+
 }
 
 /* Styling for FrontBody and BackBody components */
@@ -23,4 +25,60 @@
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
     box-sizing: border-box; /* Include padding in width and height calculations */
+}
+
+/* Background styling for the landing page */
+.landing-bg {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center;     /* Center horizontally */
+}
+
+.landing-bg::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('../assets/image/gym.jpg') no-repeat center center/cover;
+    opacity: 0.6; /* Lower opacity for background */
+    z-index: 1;
+}
+
+.landing-content,
+.landing-page {
+    position: relative;
+    z-index: 2; /* Content appears above background */
+}
+
+.landing-content {
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    font-weight: bold;
+    padding: 2rem 1rem;
+    border-radius: 16px;
+    background: rgba(0,0,0,0.3); /* subtle dark overlay for readability */
+    max-width: 600px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    width: 100%;
+    margin: 0 auto; /* Remove top/bottom margin for perfect centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.landing-content p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }

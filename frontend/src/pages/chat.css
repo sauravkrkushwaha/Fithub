@@ -1,84 +1,122 @@
-.chat-inbox-container {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 600px;
-    background-color: #f8f9fa; /* Light gray background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.chat-container {
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 850px;
+  background-color: #fefefe;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  height: 85vh;
 }
 
-/* Chat Header Styling */
 .chat-header {
-    display: flex;
-    align-items: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ddd; /* Divider below the header */
-    margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #e6e6e6;
+  margin-bottom: 22px;
 }
 
-.chat-header-avatar {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+.chat-avatar {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #007bff;
 }
 
-.chat-header-details {
-    display: flex;
-    flex-direction: column;
+.chat-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #333;
 }
 
-.chat-header-name {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333; /* Dark gray text color */
+.chat-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 6px;
+  scroll-behavior: smooth;
 }
 
-.chat-header-status {
-    font-size: 0.9rem;
-    color: #28a745; /* Green for online status */
+chat-bubble {
+  display: inline-block;            
+  max-width: 75%;
+  padding: 12px 16px;               
+  border-radius: 24px;
+  font-size: 1.05rem;
+  position: relative;
+  word-break: break-word;
+  white-space: pre-wrap;            
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;       
 }
 
-/* Chat Messages Styling */
-.chat-messages {
-    max-height: 400px; /* Limit the height of the chat messages */
-    overflow-y: auto; /* Add scroll for overflow */
-    margin-bottom: 20px;
+
+.chat-bubble.sent {
+  background-color: #d1ffe3;
+  align-self: flex-end;
+  border-bottom-right-radius: 6px;
+  color: #212529;
 }
 
-.chat-message {
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    max-width: 75%;
+.chat-bubble.received {
+  background-color: #f3f3f3;
+  align-self: flex-start;
+  border-bottom-left-radius: 6px;
+  color: #212529;
 }
 
-.chat-message.client {
-    background-color: #007bff; /* Blue for client messages */
-    color: white;
-    align-self: flex-end;
-    margin-left: auto;
+.chat-text {
+  margin: 0;
 }
 
-.chat-message.coach {
-    background-color: #e9ecef; /* Light gray for coach messages */
-    color: #333;
-    align-self: flex-start;
-    margin-right: auto;
+.chat-time {
+  font-size: 0.75rem;
+  color: #777;
+  margin-top: 6px;
+  text-align: right;
+  display: block;
+  user-select: none;
 }
 
-/* Chat Input Styling */
-.chat-input-form {
-    display: flex;
-    gap: 10px;
+.chat-form {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .chat-input {
-    flex: 1;
-    border-radius: 5px;
-    padding: 10px;
+  flex: 1;
+  border-radius: 24px;
+  border: 1px solid #ccc;
+  padding: 14px 20px;
+  font-size: 1.05rem;
+  transition: border-color 0.3s ease;
 }
 
-.chat-send-button {
-    border-radius: 5px;
-    padding: 10px 20px;
+.chat-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.3);
+}
+
+.chat-button {
+  border-radius: 24px;
+  padding: 0 30px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  background-color: #007bff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.chat-button:hover,
+.chat-button:focus {
+  background-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.6);
 }

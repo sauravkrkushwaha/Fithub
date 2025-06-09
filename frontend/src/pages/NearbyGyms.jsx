@@ -1,27 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const API_KEY = "AIzaSyCwBDUauxwyuNxOfDiqmLjewPuRIaf2bc4";
+const API_KEY = "AIzaSyCwBDUauxwyuNxOfDiqmLjewPuRIaf2bc4"; // Replace with your actual API key
 
 export default function NearbyGyms() {
   const [gyms, setGyms] = useState([]);
   const [error, setError] = useState("");
   const mapRef = useRef(null);
+  const mapInstanceRef = useRef(null);
 
   useEffect(() => {
     const loadGoogleMaps = () => {
       return new Promise((resolve, reject) => {
         if (window.google && window.google.maps && window.google.maps.places) {
           resolve();
-          return;
-        }
-
-        const existingScript = document.querySelector(
-          `script[src^="https://maps.googleapis.com/maps/api/js"]`
-        );
-
-        if (existingScript) {
-          existingScript.addEventListener("load", resolve);
-          existingScript.addEventListener("error", reject);
           return;
         }
 
@@ -37,13 +28,11 @@ export default function NearbyGyms() {
     };
 
     loadGoogleMaps()
-      .then(() => {
-        getGyms();
-      })
+      .then(() => getGymsAndMap())
       .catch((err) => setError(err.toString()));
   }, []);
 
-  const getGyms = () => {
+  const getGymsAndMap = () => {
     if (!navigator.geolocation) {
       setError("Geolocation not supported by your browser");
       return;
@@ -53,22 +42,44 @@ export default function NearbyGyms() {
       (position) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
+        const userLocation = new window.google.maps.LatLng(lat, lng);
 
-        // Create a dummy map to use the PlacesService
-        mapRef.current = new window.google.maps.Map(document.createElement("div"));
+        // Initialize the visible map
+        mapInstanceRef.current = new window.google.maps.Map(mapRef.current, {
+          center: userLocation,
+          zoom: 14,
+        });
 
-        const service = new window.google.maps.places.PlacesService(mapRef.current);
-        const location = new window.google.maps.LatLng(lat, lng);
+        // Marker for user's location
+        new window.google.maps.Marker({
+          position: userLocation,
+          map: mapInstanceRef.current,
+          title: "Your Location",
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+          },
+        });
 
+        // Places API to find gyms
+        const service = new window.google.maps.places.PlacesService(mapInstanceRef.current);
         const request = {
-          location,
-          radius: 15000, // 15 km
+          location: userLocation,
+          radius: 15000,
           type: "gym",
         };
 
         service.nearbySearch(request, (results, status) => {
           if (status === window.google.maps.places.PlacesServiceStatus.OK) {
             setGyms(results);
+
+            // Place gym markers
+            results.forEach((gym) => {
+              new window.google.maps.Marker({
+                position: gym.geometry.location,
+                map: mapInstanceRef.current,
+                title: gym.name,
+              });
+            });
           } else {
             setError("Places search failed: " + status);
           }
@@ -81,23 +92,67 @@ export default function NearbyGyms() {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "20px auto", fontFamily: "Arial, sans-serif" }}>
-      <h2>Nearby Gyms (15 km radius)</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        gap: "20px",
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+        justifyContent: "center",
+        flexWrap: "wrap",
+      }}
+    >
+      {/* Map Section */}
       <div
+        ref={mapRef}
         style={{
+          width: "60%",
+          minWidth: "300px",
+          height: "500px",
           border: "2px solid #333",
-          height: 400,
-          overflowY: "auto",
-          padding: 10,
-          backgroundColor: "#f9f9f9",
           borderRadius: 8,
         }}
+      ></div>
+
+      {/* Gym List Section */}
+      <div
+        style={{
+          width: "35%",
+          minWidth: "250px",
+          border: "1px solid #ccc",
+          padding: "10px",
+          borderRadius: 8,
+          backgroundColor: "#f9f9f9",
+          height: "500px",
+          overflowY: "auto",
+        }}
       >
+        <h3 style={{ marginTop: 0 }}>Nearby Gyms</h3>
+        {error && <p style={{ color: "red" }}>{error}</p>}
         {!error && gyms.length === 0 && <p>Loading gyms near you...</p>}
+
         {gyms.map((gym) => (
-          <div key={gym.place_id} style={{ marginBottom: 12 }}>
+          <div
+            key={gym.place_id}
+            onClick={() =>
+              window.open(
+                `https://www.google.com/maps/search/?api=1&query=${gym.geometry.location.lat()},${gym.geometry.location.lng()}`,
+                "_blank"
+              )
+            }
+            style={{
+              marginBottom: 12,
+              cursor: "pointer",
+              padding: 6,
+              borderRadius: 6,
+              backgroundColor: "#fff",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+              transition: "background-color 0.2s",
+            }}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#f0f0f0")}
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#fff")}
+          >
             <strong>{gym.name}</strong>
             <br />
             <small>{gym.vicinity || gym.formatted_address}</small>
