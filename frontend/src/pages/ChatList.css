@@ -1,8 +1,8 @@
 .chat-list-container {
-  margin: 20px auto;
-  max-width: 600px;
+  margin: 100px auto;
+  max-width: 400px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
   font-family: 'Segoe UI', sans-serif;
   overflow: hidden;

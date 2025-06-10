@@ -43,7 +43,7 @@ function CoachList() {
         <div className="coach-list-container p-4 my-4">
             <Row className="g-4 justify-content-center">
                 {coaches.map((coach) => (
-                    <Col md={4} sm={6} xs={12} key={coach._id}>
+                    <Col md={6} sm={6} xs={12} key={coach._id}>
                         <Card className="custom-card">
                             <Card.Img
                                 variant="top"

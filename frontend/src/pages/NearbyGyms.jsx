@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const API_KEY = "AIzaSyCwBDUauxwyuNxOfDiqmLjewPuRIaf2bc4"; // Replace with your actual API key
+const API_KEY = "AIzaSyCwBDUauxwyuNxOfDiqmLjewPuRIaf2bc4";
 
 export default function NearbyGyms() {
   const [gyms, setGyms] = useState([]);
