@@ -182,7 +182,7 @@ Make sure Python is installed and configured in PATH.
 
 For bugs, issues, or contributions:
 - Create an issue on GitHub
-- Contact: [your-email@example.com]
+- Contact: [contact.sauravkrkushwaha@gmail.com]
 
 ---
 
